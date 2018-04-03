@@ -7,7 +7,7 @@ These scripts provide functions that extract from an undirected network all the 
 Load example data
 -----------------
 
-To illustrate these functions, we use an ownership network, takern from Kogut (2012).
+To illustrate these functions, we use an ownership network, taken from Kogut (2012).
 
 Kogut, B.M., 2012. The Small Worlds of Corporate Governance. MIT Press.
 
@@ -17,11 +17,11 @@ library(magrittr)
 library(igraph)
 library(plyr)
 ##Download Files
-download.file("http://www8.gsb.columbia.edu/kogut/data/US/US.Owners_2001.xls",destfile="US.Owners_2001.xls")
+download.file("http://www8.gsb.columbia.edu/kogut/data/US/US.Owners_2001.xls", destfile="US.Owners_2001.xls")
 
 ##Create Dataframe
 ownershipDF<-read_excel("US.Owners_2001.xls")
-ownershipDF2<-cbind(ownershipDF$owner,ownershipDF$coname)%>%as.data.frame(.,stringsAsFactors=FALSE)
+ownershipDF2<-cbind(ownershipDF$owner,ownershipDF$coname) %>% as.data.frame(.,stringsAsFactors=FALSE)
 
 ##Create network from dataframe
 ownershipNET<-graph_from_data_frame(DF,directed = FALSE)
@@ -37,7 +37,7 @@ Below is a plot of the example network:
 Open & Closed 2 stars
 ---------------------
 
-From this ownership network we extract the opena dn closed triads/two stars.
+From this ownership network we extract the open and closed triads/two stars.
 
 ``` r
 source("UndirectedOpen2Star_function.R")
